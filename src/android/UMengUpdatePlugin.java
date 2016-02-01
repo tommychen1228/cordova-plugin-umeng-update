@@ -13,20 +13,23 @@ import org.json.JSONException;
 public class UMengUpdatePlugin extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, CallbackContext callbackContext) throws JSONException {
-        if (action.equals("init")) {
-            init(args, callbackContext);
+        if (action.equals("initApp")) {
+            initApp(args, callbackContext);
             return true;
         }
 
         return false;
     }
 
-    private void init(JSONArray args, CallbackContext callbackContext) {
+    private void initApp(JSONArray args, CallbackContext callbackContext) {
+        String androidAppkey = args.optString(0);
+        String iosAppKey = args.optString(1);
+
+        UmengUpdateAgent.setAppkey(androidAppkey);
         UmengUpdateAgent.setUpdateOnlyWifi(false);
         UmengUpdateAgent.update(cordova.getActivity());
 
+
         callbackContext.success();
     }
-
-
 }
