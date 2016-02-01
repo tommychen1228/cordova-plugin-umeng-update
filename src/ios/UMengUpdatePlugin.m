@@ -16,7 +16,7 @@
     NSString *androidAppkey = [arguments objectAtIndex:0];
     NSString *iosAppkey = [arguments objectAtIndex:1];
    
-    [UMCheckUpdate checkUpdateWithAppkey:iosAppkey channel:@"Umeng"];
+    [UMCheckUpdate checkUpdateWithAppkey:iosAppkey channel:@"App Store"];
     
     CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
     
